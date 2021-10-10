@@ -20,7 +20,7 @@ export class PostsController {
   }
 
   @Get(':id')
-  async getById(@Param('id') id: number): Promise<Message> {
+  async getById(@Param('id') id: string): Promise<Message> {
     return this.postService.getById(id);
   }
 
@@ -33,17 +33,16 @@ export class PostsController {
   // TODO: Only owner post
   @Put(':id')
   async update(
-    @Param('id') id: number,
+    @Param('id') id: string,
     @Body() message: Message,
   ): Promise<Message> {
     message.id = id;
-    return this.postService.update(message);
+    return this.postService.update(id, message);
   }
 
   // TODO: Only admin
   @Delete(':id')
-  async delete(@Param('id') id: number) {
+  async delete(@Param('id') id: string) {
     return this.postService.delete(id);
   }
-
 }

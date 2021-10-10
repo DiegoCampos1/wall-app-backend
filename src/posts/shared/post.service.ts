@@ -1,45 +1,33 @@
 import { Injectable } from '@nestjs/common';
 import { Message } from './post';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class PostService {
-  posts: Message[] = [
-    { id: 1, text: 'Post 1', author: 'Diego', authorId: 1 },
-    { id: 2, text: 'Post 2', author: 'Josiane', authorId: 2 },
-  ];
+  constructor(
+    @InjectModel('Post') private readonly postModel: Model<Message>,
+  ) {}
 
-  getAll() {
-    return this.posts;
+  async getAll() {
+    return await this.postModel.find().exec();
   }
 
-  getById(id: number) {
-    const post = this.posts.find((post) => post.id == id);
-    return post;
+  async getById(id: string) {
+    return await this.postModel.findById(id).exec();
   }
 
-  create(message: Message) {
-    let lastId = 0;
-    if (this.posts.length > 0) {
-      lastId = this.posts[this.posts.length - 1].id;
-    }
-    message.id = lastId + 1;
-    this.posts.push(message);
-    return message;
+  async create(message: Message) {
+    const createdPost = new this.postModel(message);
+    return await createdPost.save();
   }
 
-  update(post: Message) {
-    const postArray = this.getById(post.id);
-    if (postArray) {
-      postArray.text = post.text;
-      postArray.author = post.author;
-    }
-    // TODO: error
-    return postArray;
+  async update(id: string, post: Message) {
+    await this.postModel.updateOne({ _id: id }, post).exec();
+    return this.getById(id);
   }
 
-  delete(id: number) {
-    const index = this.posts.findIndex((post) => post.id == id);
-    this.posts.splice(index, 1);
-    // TODO: error
+  async delete(id: string) {
+    return await this.postModel.deleteOne({ _id: id }).exec();
   }
 }
