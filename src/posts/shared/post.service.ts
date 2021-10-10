@@ -4,8 +4,8 @@ import { Message } from './post';
 @Injectable()
 export class PostService {
   posts: Message[] = [
-    { id: 1, text: 'Post 1', author: 'Diego' },
-    { id: 2, text: 'Post 2', author: 'Josiane' },
+    { id: 1, text: 'Post 1', author: 'Diego', authorId: 1 },
+    { id: 2, text: 'Post 2', author: 'Josiane', authorId: 2 },
   ];
 
   getAll() {
