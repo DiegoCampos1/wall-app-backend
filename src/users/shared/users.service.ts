@@ -26,6 +26,10 @@ export class UsersService {
     }
   }
 
+  async getByEmail(email: string) {
+    return await this.userModel.findOne({ email }).exec();
+  }
+
   async create(user: User) {
     try {
       const createdUser = new this.userModel(user);
