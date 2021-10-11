@@ -6,7 +6,9 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
+import { JwtAuthGuard } from './../auth/shared/jwt-auth.guard';
 import { Message } from './shared/post';
 import { PostService } from './shared/post.service';
 
@@ -24,13 +26,14 @@ export class PostsController {
     return this.postService.getById(id);
   }
 
-  // TODO: Only users
+  @UseGuards(JwtAuthGuard)
   @Post()
   async create(@Body() message: Message): Promise<Message> {
     return this.postService.create(message);
   }
 
   // TODO: Only owner post
+  @UseGuards(JwtAuthGuard)
   @Put(':id')
   async update(
     @Param('id') id: string,
@@ -41,6 +44,7 @@ export class PostsController {
   }
 
   // TODO: Only admin
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   async delete(@Param('id') id: string) {
     return this.postService.delete(id);
