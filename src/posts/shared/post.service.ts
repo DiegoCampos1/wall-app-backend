@@ -29,6 +29,7 @@ export class PostService {
       const createdPost = new this.postModel(message);
       return await createdPost.save();
     } catch (error) {
+      console.error(error);
       throw new PostNotCreate();
     }
   }
@@ -38,6 +39,7 @@ export class PostService {
       await this.postModel.updateOne({ _id: id }, post).exec();
       return this.getById(id);
     } catch (error) {
+      console.error(error);
       throw new PostNotFound(id);
     }
   }
