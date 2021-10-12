@@ -5,5 +5,3 @@ export class Message extends Document {
   author: string;
   authorId: string;
 }
-
-// 78D5PhoFJx1NQSak

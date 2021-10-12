@@ -1,10 +1,10 @@
-import { AuthModule } from './auth/auth.module';
 import { Module } from '@nestjs/common';
-import { PostsModule } from './posts/posts.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
+import { PostsModule } from './posts/posts.module';
 import { UsersModule } from './users/users.module';
 import { MailModule } from './mail/mail.module';
-import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [

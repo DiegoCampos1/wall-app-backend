@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Message } from './post';
 import { InjectModel } from '@nestjs/mongoose';
+import { Message } from './post';
 import { Model } from 'mongoose';
 import { PostNotFound } from '../errors/postNotFound.error';
 import { PostNotCreate } from '../errors/postNotCreate.error';
