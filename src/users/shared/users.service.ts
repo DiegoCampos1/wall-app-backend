@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { UserNotFound } from '../errors/userNotFound.error';
 import { UserNotCreate } from '../errors/userNotCreate.error';
-import { MailService } from 'src/mail/mail.service';
+import { MailService } from '../../mail/mail.service';
 
 @Injectable()
 export class UsersService {
@@ -14,12 +14,22 @@ export class UsersService {
   ) {}
 
   async getAll() {
-    return await this.userModel.find().exec();
+    const allUsers = await this.userModel.find().exec();
+    return allUsers.map((user) => ({
+      id: user._id,
+      name: user.name,
+      email: user.email,
+    }));
   }
 
   async getById(id: string) {
     try {
-      return await this.userModel.findById(id).exec();
+      const user = await this.userModel.findById(id).exec();
+      return {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+      };
     } catch (error) {
       console.error(error);
       throw new UserNotFound(id);
@@ -35,7 +45,12 @@ export class UsersService {
       const createdUser = new this.userModel(user);
       // The next line send email after create user, it's necessary a configuration SMTP variables in .env
       // await this.mailService.sendUserConfirmation(user);
-      return await createdUser.save();
+      const useraved = await createdUser.save();
+      return {
+        id: useraved._id,
+        name: useraved.name,
+        email: useraved.email,
+      };
     } catch (error) {
       console.error(error);
       throw new UserNotCreate();
