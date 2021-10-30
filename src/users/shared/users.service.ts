@@ -44,7 +44,7 @@ export class UsersService {
     try {
       const createdUser = new this.userModel(user);
       // The next line send email after create user, it's necessary a configuration SMTP variables in .env
-      // await this.mailService.sendUserConfirmation(user);
+      // await this.mailService.sendUserWelcomeEmail(user);
       const useraved = await createdUser.save();
       return {
         id: useraved._id,
