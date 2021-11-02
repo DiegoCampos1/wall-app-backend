@@ -2,9 +2,9 @@ import { UserResponse } from 'src/users/userResponse.entity';
 
 export const userStub = (): UserResponse => {
   return {
-    email: 'test.integration@test.com',
-    name: 'Integration Test',
-    id: '123456',
+    id: '6181617b48789ceb3152f4df',
+    name: 'Coragem the Cat 4',
+    email: 'teste4@test.com',
   };
 };
 
