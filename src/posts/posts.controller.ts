@@ -32,7 +32,6 @@ export class PostsController {
     return this.postService.create(message);
   }
 
-  // TODO: Only owner post
   @UseGuards(JwtAuthGuard)
   @Put(':id')
   async update(
