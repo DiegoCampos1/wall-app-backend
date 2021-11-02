@@ -2,9 +2,9 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { User } from 'src/mail/user.entity';
 import { MailService } from '../../mail/mail.service';
 import { UsersController } from '../users.controller';
-import { UsersService } from './users.service';
+import { UsersService } from '../shared/users.service';
 
-jest.mock('./users.service');
+jest.mock('../shared/users.service.ts');
 jest.mock('../../mail/mail.service.ts');
 
 describe('UsersService', () => {
