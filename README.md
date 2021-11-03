@@ -1,32 +1,35 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# The Wall - Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+> Wall App is an application that allows users to register, login, and write on a wall..
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Link to frontend project is below:
 
-## Description
+* Frontend API NestJS: [Frontend](https://github.com/DiegoCampos1/wall-app-frontend)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+For the construction of this app was chosen **[NestJS](http://nestjs.com/)**, **[MongoDB](https://www.mongodb.com/)**, **[mongoose](https://mongoosejs.com/)**, **[nodemailer](https://nodemailer.com/about/)** and **[passportjs](http://www.passportjs.org/packages/passport-jwt/)**.
 
-## Installation
+For the integration tests, chosen **[supertest](https://www.npmjs.com/package/supertest)**.
+
+## Getting Started
+
+These instructions will get you a copy of the full project up and running on your local machine for development and testing purposes.
+
+The project can be built with npm or yarn.
+
+## How to Install
+
+### Frontend (React)
+
+* To download the project, follow the instructions below:
+
+```
+1. git clone git@github.com:DiegoCampos1/wall-app-frontend.git
+```
+
+* Install the dependencies and start the project:
+
+
+* Installation
 
 ```bash
 $ npm install
@@ -44,8 +47,9 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Test
+## Running the tests:
 
 ```bash
 # unit tests
@@ -53,20 +57,43 @@ $ npm run test
 
 # e2e tests
 $ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
-## Support
+## Environment Variables
+```
+# mail
+MAIL_HOST=[EMAIL SMTP HOST]
+MAIL_USER=[Email user for to be used for sending emails]
+MAIL_PASSWORD=[Email password]
+MAIL_FROM=example@example.com
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+# jwt
+JWT=[Secret used to encrypt data]
 
-## Stay in touch
+#DATABASE
+DB_USER=db_user
+DB_PASSWORD=78D5PhoFJx1NQSak
+DB_NAME=myFirstDatabase
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+PORT=3001
+
+#DATABASE_TEST
+MONGO_TEST_CONNECTION_URI=mongodb://localhost/demo-test
+
+#PRODUCTION OR TEST, choise one:
+NODE_ENV=production
+#NODE_ENV=test
+
+```
+## Keep in Touch
+
+Diego Campos
+* [Diego Campos](mailto:diegodiko05@gmail.com)
+
+
+## Thank you!
+
+Thanks TSL! I really liked to build this App!
 
 ## License
 
