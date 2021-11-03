@@ -94,7 +94,3 @@ Diego Campos
 ## Thank you!
 
 Thanks TSL! I really liked to build this App!
-
-## License
-
-Nest is [MIT licensed](LICENSE).
